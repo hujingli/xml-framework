@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<req>
+	<header>
+		<reqCode>1001</reqCode>
+	</header>
+	<body>
+		<add1>1</add1>
+		<add2>2</add2>
+	</body>
+</req>

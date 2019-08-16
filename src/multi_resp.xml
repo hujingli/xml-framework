@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><resp>
+    <header>
+        <respCode>1001</respCode>
+        <respMsg>响应成功</respMsg>
+    </header>
+    <body>
+        <res>2</res>
+    </body>
+</resp>

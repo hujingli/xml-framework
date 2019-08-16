@@ -1,0 +1,10 @@
+[LOCKLOGGER]2019-08-16 14:03:31 425 com.xmlframework.server.CommonServer:[INFO]-服务端运行在 8088 端口，服务已启动
+[LOCKLOGGER]2019-08-16 14:04:08 701 com.xmlframework.client.CommonClient:[INFO]-与 127.0.0.1:8088 进行通信
+[LOCKLOGGER]2019-08-16 14:04:08 708 com.xmlframework.client.CommonClient:[INFO]-读取 D:idea-workspacexml-frameworksrcadd_req.xml 文件内容并发送给服务端
+[LOCKLOGGER]2019-08-16 14:04:08 766 com.xmlframework.server.CommonServer:[INFO]-感知到 read 事件，进行数据读取
+[LOCKLOGGER]2019-08-16 14:04:08 770 com.xmlframework.server.CommonServer:[INFO]-进行业务逻辑处理，业务代码为 1001
+[LOCKLOGGER]2019-08-16 14:04:08 767 com.xmlframework.client.CommonClient:[INFO]-接收服务端返回数据，并写入文件 D:idea-workspacexml-frameworksrcadd_resp.xml
+[LOCKLOGGER]2019-08-16 14:04:08 775 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 2 个类
+[LOCKLOGGER]2019-08-16 14:04:08 845 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-16 14:04:08 847 com.xmlframework.server.CommonServer:[INFO]-调用 class com.xmlframework.controller.XmlAddController 类的 public java.lang.String com.xmlframework.controller.XmlAddController.doAdd(com.xmlframework.entity.add.XmlAddActionReq) throws javax.xml.bind.JAXBException 方法处理 <?xml version="1.0" encoding="utf-8"?><req>	<header>		<reqCode>1001</reqCode>	</header>	<body>		<add1>1</add1>		<add2>2</add2>	</body></req>
+[LOCKLOGGER]2019-08-16 14:04:09 311 com.xmlframework.server.CommonServer:[INFO]-感知到 write 事件，进行数据写回
