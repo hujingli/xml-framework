@@ -21,6 +21,10 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import com.xmlframework.entity.common.XmlReqHeader;
+import com.xmlframework.entity.common.XmlRespHeader;
+import com.xmlframework.util.RespCodeEnum;
+import com.xmlframework.util.TimeUtil;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -33,14 +37,16 @@ import org.xml.sax.SAXException;
  */
 public class XmlHandler {
 
+	private static final XmlRespHeader XML_RESP_SUCCESS_HEADER = new XmlRespHeader(RespCodeEnum.RespSuccess.getCode(), RespCodeEnum.RespSuccess.getMsg(), TimeUtil.getDate(), TimeUtil.getTime());
+
 	/**
 	 * 将xml的string转换成具体的pojo
 	 * 
-	 * @param <T>
-	 * @param xmlStr
-	 * @param clz
-	 * @return
-	 * @throws JAXBException
+	 * @param <T> type
+	 * @param xmlStr xml string
+	 * @param clz Class
+	 * @return T.Class
+	 * @throws JAXBException e
 	 */
 	public static <T> Object xmlStringToObject(String xmlStr, Class<T> clz) throws JAXBException {
 		JAXBContext context = JAXBContext.newInstance(clz);
@@ -52,9 +58,9 @@ public class XmlHandler {
 	/**
 	 * 将object转换成xml的string
 	 * 
-	 * @param obj
-	 * @return
-	 * @throws JAXBException
+	 * @param obj obj
+	 * @return String
+	 * @throws JAXBException e
 	 */
 	public static String objectToXmlString(Object obj) throws JAXBException {
 		StringWriter sw = new StringWriter();
@@ -69,9 +75,9 @@ public class XmlHandler {
 	/**
 	 * 获取xml文件内容
 	 * 
-	 * @param path
-	 * @return
-	 * @throws IOException
+	 * @param path xml path
+	 * @return String
+	 * @throws IOException e
 	 */
 	public static String xmlFileToString(String path) throws IOException {
 		try (BufferedReader br = new BufferedReader(new FileReader(new File(path)))) {
@@ -87,12 +93,12 @@ public class XmlHandler {
 	/**
 	 * 将xml string写入xml文件
 	 * 
-	 * @param str
-	 * @param path
-	 * @throws SAXException
-	 * @throws IOException
-	 * @throws ParserConfigurationException
-	 * @throws TransformerException
+	 * @param str xml string
+	 * @param path xml path
+	 * @throws SAXException e
+ 	 * @throws IOException e
+	 * @throws ParserConfigurationException e
+	 * @throws TransformerException e
 	 */
 	public static void xmlStringToFile(String str, String path) throws Exception {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -105,5 +111,18 @@ public class XmlHandler {
 
 		StreamResult result = new StreamResult(new File(path));
 		transformer.transform(source, result);
+	}
+
+	/**
+	 * 生成 resp header
+	 * @param isSuccess is success or failed
+	 * @param msg string
+	 * @return header
+	 */
+	public static XmlRespHeader genRespHeader(boolean isSuccess, String msg) {
+		if (isSuccess) {
+			return XML_RESP_SUCCESS_HEADER;
+		}
+		return new XmlRespHeader(RespCodeEnum.RespError.getCode(), msg, TimeUtil.getDate(), TimeUtil.getTime());
 	}
 }

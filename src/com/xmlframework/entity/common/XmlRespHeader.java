@@ -11,10 +11,18 @@ public class XmlRespHeader {
 	private String respCode;
 	@XmlElement(name = "respMsg")
 	private String respMsg;
+	@XmlElement(name = "reqDate")
+	private String reqDate;
+	@XmlElement(name = "reqTime")
+	private String reqTime;
 
-	public XmlRespHeader(String respCode, String respMsg) {
+	public XmlRespHeader() {}
+
+	public XmlRespHeader(String respCode, String respMsg, String reqDate, String reqTime) {
 		this.respCode = respCode;
 		this.respMsg = respMsg;
+		this.reqDate = reqDate;
+		this.reqTime = reqTime;
 	}
 
 	@XmlTransient

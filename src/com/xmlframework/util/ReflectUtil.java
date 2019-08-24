@@ -22,7 +22,7 @@ public class ReflectUtil {
 	/**
 	 * invoke method
 	 * 
-	 * @throws Exception
+	 * @throws Exception e
 	 */
 	public static Object invokeMethod(Class<?> clz, Method method, String xmlStr) throws Exception {
 		Object obj = clz.newInstance();
@@ -46,12 +46,12 @@ public class ReflectUtil {
 	 * 根据 type T 返回一个 T 的对象，通过 map 的 key 与 T 的属性名称完全匹配来构造
 	 * (这么做，好像有点驴，构造map的时间都把对象new完了)
 	 * 
-	 * @param <T>
-	 * @param clz
-	 * @param map
-	 * @return
-	 * @throws IllegalAccessException
-	 * @throws InstantiationException
+	 * @param <T> from class
+	 * @param clz to class
+	 * @param map mapping
+	 * @return T.class
+	 * @throws IllegalAccessException e
+	 * @throws InstantiationException e
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T mockObject(Class<T> clz, Map<String, Object> map)
@@ -79,9 +79,9 @@ public class ReflectUtil {
 	/**
 	 * 根据 field 的名称获取 map 中对应的 value
 	 * 
-	 * @param map
-	 * @param fieldName
-	 * @return
+	 * @param map mapping
+	 * @param fieldName filed name
+	 * @return obj
 	 */
 	public static Object getMatchedObject(Map<String, Object> map, String fieldName) {
 		for (Entry<String, Object> entry : map.entrySet()) {
