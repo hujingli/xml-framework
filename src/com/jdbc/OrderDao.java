@@ -6,6 +6,24 @@ import java.sql.*;
 
 public class OrderDao {
 
+    public static int[] batchInsertWithoutCloseConn(Order[] orders, Connection conn) throws SQLException {
+        Statement statement = conn.createStatement();
+        for (Order o : orders) {
+            statement.addBatch(
+                    "insert into `order`(order_id, item_code, order_qty, order_sequence, order_status, order_date, order_time, order_user) values" +
+                            "('"+o.getOrderId()+"', '"+o.getItemCode()+"', '"+o.getOrderQty()+"', '"+o.getOrderSequence()+"', '"+o.getOrderStatus()+"'," +
+                            " '"+o.getOrderDate()+"', '"+o.getOrderTime()+"', '"+o.getOrderUser()+"')"
+            );
+        }
+
+        int[] results = statement.executeBatch();
+
+
+        if (statement != null) {
+            statement.close();
+        }
+        return results;
+    }
 
     public static int insert(Order order) throws SQLException {
         Connection conn = null;
@@ -13,6 +31,8 @@ public class OrderDao {
         int affected = 0;
         try {
             conn = DBUtil.getConnection();
+
+
             pst = conn.prepareStatement("insert into `order`(order_id, item_code, order_qty, order_sequence, order_status, order_date, order_time, order_user) values(?,?,?,?,?,?,?,?)");
 
             pst.setString(1, order.getOrderId());

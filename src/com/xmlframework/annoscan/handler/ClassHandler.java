@@ -1,14 +1,14 @@
 package com.xmlframework.annoscan.handler;
 
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.log.ILog;
 import com.log.LogTypeEnum;
 import com.log.LoggerFactory;
 import com.xmlframework.annoscan.anno.XmlController;
 import com.xmlframework.annoscan.util.ClassUtil;
 import com.xmlframework.annoscan.util.PropertiesUtil;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * 自动扫描类管理

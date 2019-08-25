@@ -1,16 +1,16 @@
 package com.xmlframework.annoscan.handler;
 
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
 import com.log.ILog;
 import com.log.LogTypeEnum;
 import com.log.LoggerFactory;
 import com.xmlframework.annoscan.anno.XmlService;
 import com.xmlframework.annoscan.entity.ReqHandler;
 import com.xmlframework.annoscan.entity.XmlReq;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 使得每一个xml的req都与一个handler对应 即一个reqCode对应一个类中的一个方法

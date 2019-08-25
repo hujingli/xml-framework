@@ -16,7 +16,7 @@ import java.util.Map;
 public class XmlFetchController {
 
     @XmlService(code = "2001")
-    public String doFetch(FetchReq req) throws JAXBException {
+    public static String doFetch(FetchReq req) throws JAXBException {
         Map<String, Integer> map = StockHandler.getStock();
 
 
@@ -28,8 +28,10 @@ public class XmlFetchController {
 
         int numCount = 0;
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            numCount++;
-            row.add(new FetchItemWrapper(new FetchItem(entry.getKey(), entry.getValue())));
+            if (entry.getValue() != 0) {
+                numCount++;
+                row.add(new FetchItemWrapper(new FetchItem(entry.getKey(), entry.getValue())));
+            }
         }
         body.setNums(numCount);
         body.setRows(row);

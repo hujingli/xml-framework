@@ -1,12 +1,11 @@
 package com.xmlframework.handler;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.util.Iterator;
+import com.xmlframework.entity.common.XmlRespHeader;
+import com.xmlframework.util.RespCodeEnum;
+import com.xmlframework.util.TimeUtil;
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -20,14 +19,8 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
-import com.xmlframework.entity.common.XmlReqHeader;
-import com.xmlframework.entity.common.XmlRespHeader;
-import com.xmlframework.util.RespCodeEnum;
-import com.xmlframework.util.TimeUtil;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
+import java.io.*;
+import java.util.Iterator;
 
 /**
  * xml 数据解析工具类

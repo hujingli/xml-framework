@@ -4,25 +4,25 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(propOrder = { "respCode", "respMsg" })
+@XmlType(propOrder = { "respCode", "respMsg", "respDate", "respTime" })
 public class XmlRespHeader {
 
 	@XmlElement(name = "respCode")
 	private String respCode;
 	@XmlElement(name = "respMsg")
 	private String respMsg;
-	@XmlElement(name = "reqDate")
-	private String reqDate;
-	@XmlElement(name = "reqTime")
-	private String reqTime;
+	@XmlElement(name = "respDate")
+	private String respDate;
+	@XmlElement(name = "respTime")
+	private String respTime;
 
 	public XmlRespHeader() {}
 
-	public XmlRespHeader(String respCode, String respMsg, String reqDate, String reqTime) {
+	public XmlRespHeader(String respCode, String respMsg, String respDate, String respTime) {
 		this.respCode = respCode;
 		this.respMsg = respMsg;
-		this.reqDate = reqDate;
-		this.reqTime = reqTime;
+		this.respDate = respDate;
+		this.respTime = respTime;
 	}
 
 	@XmlTransient
@@ -41,5 +41,23 @@ public class XmlRespHeader {
 
 	public void setRespMsg(String respMsg) {
 		this.respMsg = respMsg;
+	}
+
+	@XmlTransient
+	public String getRespDate() {
+		return respDate;
+	}
+
+	public void setRespDate(String respDate) {
+		this.respDate = respDate;
+	}
+
+	@XmlTransient
+	public String getRespTime() {
+		return respTime;
+	}
+
+	public void setRespTime(String respTime) {
+		this.respTime = respTime;
 	}
 }

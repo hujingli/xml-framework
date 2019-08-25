@@ -1,5 +1,7 @@
 package com.xmlframework.util;
 
+import com.xmlframework.handler.XmlHandler;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -7,8 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import com.xmlframework.handler.XmlHandler;
 
 public class ReflectUtil {
 

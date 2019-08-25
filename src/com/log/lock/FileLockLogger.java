@@ -1,14 +1,14 @@
 package com.log.lock;
 
+import com.log.ILog;
+import com.log.LogEnum;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
-
-import com.log.ILog;
-import com.log.LogEnum;
 
 /**
  * 文件日志，将日志写入文件并在控制台打印

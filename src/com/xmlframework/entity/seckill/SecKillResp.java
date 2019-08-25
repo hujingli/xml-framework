@@ -5,7 +5,7 @@ import com.xmlframework.entity.common.XmlRespHeader;
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "req")
+@XmlRootElement(name = "resp")
 @XmlType(propOrder = { "header", "body" })
 public class SecKillResp {
 

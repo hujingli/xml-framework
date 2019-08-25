@@ -1,19 +1,19 @@
 package com.log;
 
-import java.io.IOException;
-
 import com.log.lock.FileLockLogger;
 import com.log.queue.FileQueueLogger;
 
+import java.io.IOException;
+
 /**
- * 日志工厂方法，所有需要日志记录的都使用此工厂获取
+ * 锟斤拷志锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷要锟斤拷志锟斤拷录锟侥讹拷使锟矫此癸拷锟斤拷锟斤拷取
  * 
  * @author wanglw2
  *
  */
 public class LoggerFactory {
 	/**
-	 * 获取日志记录的工厂方法
+	 * 锟斤拷取锟斤拷志锟斤拷录锟侥癸拷锟斤拷锟斤拷锟斤拷
 	 * 
 	 * @param clazz
 	 * @return
@@ -41,9 +41,9 @@ public class LoggerFactory {
 		ILog flog = LoggerFactory.getLogger(LoggerFactory.class, LogTypeEnum.FILEWITHLOCK);
 		ILog qlog = LoggerFactory.getLogger(LoggerFactory.class,  LogTypeEnum.FILEWITHQUEUE);
 
-		clog.debug("开始计算用户：[{}]的薪资", "tom");
-		flog.debug("开始计算用户：[{}]的薪资", "tom");
-		qlog.debug("开始计算用户：[{}]的薪资", "tom");
+		clog.debug("锟斤拷始锟斤拷锟斤拷锟矫伙拷锟斤拷[{}]锟斤拷薪锟斤拷", "tom");
+		flog.debug("锟斤拷始锟斤拷锟斤拷锟矫伙拷锟斤拷[{}]锟斤拷薪锟斤拷", "tom");
+		qlog.debug("锟斤拷始锟斤拷锟斤拷锟矫伙拷锟斤拷[{}]锟斤拷薪锟斤拷", "tom");
 
 		try {
 			throw new NullPointerException("null");

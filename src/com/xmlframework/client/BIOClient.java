@@ -1,15 +1,6 @@
 package com.xmlframework.client;
 
 import com.xmlframework.annoscan.util.PropertiesUtil;
-import com.xmlframework.entity.fetch.FetchReq;
-import com.xmlframework.handler.MessageHandler;
-import com.xmlframework.handler.XmlHandler;
-
-import javax.xml.bind.JAXBException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
 
 public class BIOClient {
 
@@ -33,36 +24,20 @@ public class BIOClient {
     private void start() {
         this.init();
 
-        Socket socket;
-        OutputStream os;
-        InputStream is;
-        try {
-            socket = new Socket(this.addr, this.port);
-
-            os = socket.getOutputStream();
-
-            FetchReq req = RequestFactory.genFetchReq();
-
-            String xmlStr = XmlHandler.objectToXmlString(req);
-            String data = MessageHandler.addLenPrefix(xmlStr);
-            os.write(data.getBytes());
-            os.flush();
-
-            is = socket.getInputStream();
-
-            String ret = readData(is);
-
-            System.out.println(ret);
-
-        } catch (IOException | JAXBException e) {
-            e.printStackTrace();
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 200; i++) {
+            ClientHandler serverHandler = new ClientHandler("client" + i, this.addr, this.port);
+            Thread t = new Thread(serverHandler);
+            t.start();
+            try {
+                t.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-    }
+        long end = System.currentTimeMillis();
 
-    private String readData(InputStream is) throws IOException {
-        String dataLen = MessageHandler.readByLen(is, 6);
-
-        return MessageHandler.readByLen(is, Integer.parseInt(dataLen));
+        System.out.println("finished" + (end - start));
     }
 
     public static void main(String[] args) {

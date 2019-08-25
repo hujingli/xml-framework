@@ -2,7 +2,6 @@ package com.xmlframework.handler;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 import java.util.ArrayList;

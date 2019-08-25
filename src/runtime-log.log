@@ -1,0 +1,40 @@
+[LOCKLOGGER]2019-08-25 23:34:28 645 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-25 23:34:28 707 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-25 23:35:34 003 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-25 23:35:34 032 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-25 23:37:22 562 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-25 23:37:22 585 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-25 23:38:48 112 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-25 23:38:48 142 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-25 23:40:23 188 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-25 23:40:23 217 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-25 23:40:56 020 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-25 23:40:56 053 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-25 23:50:21 514 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-25 23:50:21 547 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-25 23:55:55 133 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-25 23:55:55 185 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:00:42 965 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:00:42 995 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:02:21 997 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:02:22 029 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:03:32 585 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:03:32 642 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:07:40 195 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:07:40 231 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:18:07 321 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:18:07 355 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:19:12 619 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:19:12 647 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:20:54 616 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:20:54 655 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:24:08 801 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:24:08 832 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:26:37 172 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:26:37 266 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:28:53 731 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:28:53 765 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:31:30 704 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:31:30 732 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode
+[LOCKLOGGER]2019-08-26 00:36:17 199 com.xmlframework.annoscan.handler.ClassHandler:[INFO]-自动扫描包 com.xmlframework.controller, 获取到 3 个类
+[LOCKLOGGER]2019-08-26 00:36:17 242 com.xmlframework.annoscan.handler.ControllerHandler:[INFO]-匹配 XmlController.XmlService 与 reqCode

@@ -6,7 +6,6 @@ import com.xmlframework.entity.common.XmlReqHeader;
 import com.xmlframework.entity.fetch.FetchReq;
 import com.xmlframework.entity.seckill.SecKillReq;
 import com.xmlframework.entity.seckill.SecKillReqBody;
-import com.xmlframework.server.BIOServer;
 import com.xmlframework.util.ReqCodeEnum;
 import com.xmlframework.util.TimeUtil;
 
@@ -19,8 +18,8 @@ public class RequestFactory {
 
     public static SecKillReq genSecKillReq(String user, String itemId) {
         XmlReqHeader header = genHeaderByCode(ReqCodeEnum.ActionSecKill.getCode());
-        int no = BIOServer.orderHandler.getSequence();
-        String sequence = System.out.format("20190824%012d", no).toString();
+
+        String sequence = String.format("%s%d", user, System.currentTimeMillis());
         SecKillReqBody body = new SecKillReqBody(itemId, 1, user, sequence);
 
         return new SecKillReq(header, body);

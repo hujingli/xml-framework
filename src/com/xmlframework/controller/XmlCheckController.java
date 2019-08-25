@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class XmlCheckController {
 
     @XmlService(code = "2003")
-    public String doCheck(CheckReq req) throws JAXBException {
+    public static String doCheck(CheckReq req) throws JAXBException {
         String sequence = req.getBody().getOrderSequence();
 
         // 查内存

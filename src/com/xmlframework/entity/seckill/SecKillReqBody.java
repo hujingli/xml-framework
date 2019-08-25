@@ -1,6 +1,8 @@
 package com.xmlframework.entity.seckill;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlType(propOrder = { "itemId", "qty", "orderUser", "orderSequence" })
 public class SecKillReqBody {

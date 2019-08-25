@@ -1,8 +1,5 @@
 package com.xmlframework.server;
 
-import com.log.ILog;
-import com.log.LogTypeEnum;
-import com.log.LoggerFactory;
 import com.xmlframework.annoscan.handler.ClassLoadHandler;
 import com.xmlframework.annoscan.util.PropertiesUtil;
 import com.xmlframework.handler.OrderHandler;
@@ -12,14 +9,14 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * bio and executors
  */
 public class BIOServer {
-
-    private static ILog logger = LoggerFactory.getLogger(BIOServer.class, LogTypeEnum.FILEWITHLOCK);
 
     private int port;
 
@@ -41,8 +38,12 @@ public class BIOServer {
         StockHandler.init();
 
         // 初始化线程池和订单守护线程
-        es = Executors.newCachedThreadPool();
+        es = new ThreadPoolExecutor(200, Integer.MAX_VALUE,
+                60L, TimeUnit.SECONDS,
+                new SynchronousQueue<Runnable>());
+//        es = Executors.newFixedThreadPool(200);
         orderHandler = new OrderHandler();
+        new Thread(orderHandler).start();
     }
 
     /**

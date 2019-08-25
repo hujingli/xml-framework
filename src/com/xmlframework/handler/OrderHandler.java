@@ -1,12 +1,13 @@
 package com.xmlframework.handler;
 
-import com.jdbc.OrderDao;
-import com.jdbc.StockDao;
+import com.jdbc.DBUtil;
 import com.xmlframework.entity.Order;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -21,20 +22,62 @@ public class OrderHandler implements Runnable {
 
     @Override
     public void run() {
-        Order order = queue.poll();
-
         try {
-            int affectedCount = OrderDao.insert(order);
-
-            if (affectedCount == 1) {
-                StockDao.descStock(order.getItemCode());
-                // log
-            }
+            TimeUnit.SECONDS.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Connection conn = null;
+        try {
+            conn = DBUtil.getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        while(!queue.isEmpty()) {
+            Order[] orders = queue.toArray(new Order[0]);
+            System.out.println("write db total: " + orders.length);
 
+//            try {
+//                int[] results = OrderDao.batchInsertWithoutCloseConn(orders, conn);
 
+//                Map<String, Integer> map = new HashMap<>();
+//                for(int i = 0; i < results.length; i++) {
+//                    if (results[i] == 0) {
+//                        Order failed = orders[i];
+//                        failed.setOrderStatus(3);
+//                        this.produce(failed);
+//                        if (map.containsKey(orders[i].getItemCode())) {
+//                            map.put(orders[i].getItemCode(), map.get(orders[i].getItemCode()) + 1);
+//                        } else {
+//                            map.put(orders[i].getItemCode(), 1);
+//                        }
+//                    }
+//                }
+
+//                if (!map.isEmpty()) {
+//                    for(Map.Entry<String, Integer> entry : map.entrySet()) {
+//                        // 插入失败则返还数量
+//                        StockHandler.incrStock(entry.getKey(), entry.getValue());
+//                    }
+//                }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

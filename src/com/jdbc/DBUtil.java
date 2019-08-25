@@ -4,17 +4,9 @@ import java.sql.*;
 
 public class DBUtil {
 
-    public static String url = "jdbc:mysql://localhost:3306/cyvan";
+    public static String url = "jdbc:mysql://localhost:3306/cyvan?serverTimezone=UTC";
     public static String user = "root";
     public static String passwd = "root";
-
-    static {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
     // TODO(cyvan):更换连接池
     public static Connection getConnection() throws SQLException {

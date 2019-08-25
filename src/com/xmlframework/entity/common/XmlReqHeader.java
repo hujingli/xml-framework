@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
-@XmlType(propOrder = { "reqCode" })
+@XmlType(propOrder = { "reqCode", "reqDate", "reqTime" })
 public class XmlReqHeader {
 	@XmlElement(name = "reqCode")
 	private String reqCode;

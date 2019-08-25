@@ -55,9 +55,9 @@ public class StockHandler {
      * 增加库存
      * @param id 商品 id
      */
-    public static void incrStock(String id) {
+    public static void incrStock(String id, int count) {
         synchronized (id.intern()) {
-            stock.put(id, stock.get(id) + 1);
+            stock.put(id, stock.get(id) + count);
         }
     }
 

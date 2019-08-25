@@ -19,13 +19,15 @@ import javax.xml.bind.JAXBException;
 public class XmlSecKillController {
 
     @XmlService(code = "2002")
-    public String doSecKill(SecKillReq req) throws JAXBException {
+    public static String doSecKill(SecKillReq req) throws JAXBException {
         // 判断是否仍有商品
         String itemCode = req.getBody().getItemId();
-        if (StockHandler.descStock(itemCode)) {
+        if (!StockHandler.descStock(itemCode)) {
             XmlRespHeader respHeader = XmlHandler.genRespHeader(false, "商品已被全部抢购");
             SecKillResp resp = new SecKillResp();
+            SecKillRespBody body = new SecKillRespBody(req.getBody().getOrderSequence(), "02");
             resp.setHeader(respHeader);
+            resp.setBody(body);
 
             return XmlHandler.objectToXmlString(resp);
         }
@@ -34,6 +36,7 @@ public class XmlSecKillController {
         SecKillReqBody body = req.getBody();
         Order order = new Order();
 
+        order.setOrderId(body.getOrderSequence());
         order.setItemCode(itemCode);
         order.setOrderQty(body.getQty());
         order.setOrderSequence(body.getOrderSequence());
@@ -41,16 +44,19 @@ public class XmlSecKillController {
 
         order.setOrderDate(TimeUtil.getDate());
         order.setOrderTime(TimeUtil.getTime());
+        order.setOrderStatus(0);
 
         boolean produce = BIOServer.orderHandler.produce(order);
         // 插入失败
         if (!produce) {
             XmlRespHeader respHeader = XmlHandler.genRespHeader(false, "订单生成失败");
             SecKillResp resp = new SecKillResp();
+            SecKillRespBody respBody = new SecKillRespBody(req.getBody().getOrderSequence(), "02");
             resp.setHeader(respHeader);
+            resp.setBody(respBody);
 
             // 退还商品数量
-            StockHandler.incrStock(itemCode);
+            StockHandler.incrStock(itemCode, 1);
 
             return XmlHandler.objectToXmlString(resp);
         }

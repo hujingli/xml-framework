@@ -1,9 +1,13 @@
 package com.xmlframework.server;
 
-import com.xmlframework.annoscan.entity.ReqHandler;
-import com.xmlframework.annoscan.handler.ControllerHandler;
+import com.xmlframework.controller.XmlCheckController;
+import com.xmlframework.controller.XmlFetchController;
+import com.xmlframework.controller.XmlSecKillController;
+import com.xmlframework.entity.check.CheckReq;
+import com.xmlframework.entity.fetch.FetchReq;
+import com.xmlframework.entity.seckill.SecKillReq;
 import com.xmlframework.handler.MessageHandler;
-import com.xmlframework.util.ReflectUtil;
+import com.xmlframework.handler.XmlHandler;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,7 +62,6 @@ public class ServerHandler implements Runnable {
      */
     private String readData(InputStream is) throws IOException {
         String dataLen = MessageHandler.readByLen(is, 6);
-
         return MessageHandler.readByLen(is, Integer.parseInt(dataLen));
     }
 
@@ -77,12 +80,25 @@ public class ServerHandler implements Runnable {
             return "";
         }
 
+        String ret = "";
+
+        if ("2001".equals(code)) {
+            FetchReq req = (FetchReq) XmlHandler.xmlStringToObject(data, FetchReq.class);
+            ret = XmlFetchController.doFetch(req);
+        } else if ("2002".equals(code)) {
+            SecKillReq req = (SecKillReq) XmlHandler.xmlStringToObject(data, SecKillReq.class);
+            ret = XmlSecKillController.doSecKill(req);
+        } else if ("2003".equals(code)) {
+            CheckReq req = (CheckReq) XmlHandler.xmlStringToObject(data, CheckReq.class);
+            ret = XmlCheckController.doCheck(req);
+        }
         // invoke方法获得返回值(xml string)
-        ReqHandler handler = ControllerHandler.getHandler(code);
+        // TODO(cyvan): 反射太慢了，测试缓存反射对象
+//        ReqHandler handler = ControllerHandler.getHandler(code);
+//
+//        Object obj = ReflectUtil.invokeMethod(handler.getControllerClass(), handler.getActionMethod(), data);
 
-        Object obj = ReflectUtil.invokeMethod(handler.getControllerClass(), handler.getActionMethod(), data);
-
-        return (String) obj;
+        return ret;
     }
 
     /**
